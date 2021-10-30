@@ -203,7 +203,7 @@ twisted-iocpsupport==1.0.2
 twython==3.9.1
 txaio==21.2.1
 typing-extensions==3.7.4.3
-urllib3==1.26.4
+urllib3==1.26.5
 utils==1.0.1
 vaderSentiment==3.3.2
 virtualenv==20.4.7
