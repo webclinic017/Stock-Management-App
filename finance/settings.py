@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(!(7f4y+1dgu(2jiiqgu#aw!v5=_dw880vhu*nzd1jhdo@q@^2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -82,12 +82,7 @@ ASGI_APPLICATION = 'finance.routing.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = {}
 
 
 # Password validation
