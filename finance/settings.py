@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-(!(7f4y+1dgu(2jiiqgu#aw!v5=_dw880vhu*nzd1jhdo@q@^2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['stockfolio-app-2000.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -157,6 +157,7 @@ CHANNEL_LAYERS = {
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
