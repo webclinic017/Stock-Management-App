@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(!(7f4y+1dgu(2jiiqgu#aw!v5=_dw880vhu*nzd1jhdo@q@^2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -82,7 +84,12 @@ ASGI_APPLICATION = 'finance.routing.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
@@ -147,6 +154,7 @@ CHANNEL_LAYERS = {
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -167,3 +175,5 @@ STOCKS_API_URL = 'https://www.quandl.com/api/v3/datasets/EOD/'
 api_key = 'Tpk_c46f4087296c43358402984f3b26ed2f'
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+django_heroku.settings(locals())
